@@ -34,7 +34,7 @@ that does and does not cover.
 
 ## Requirements
 
-Apple silicon, macOS Sonoma or newer. There is no Intel build.
+Apple silicon, macOS Ventura or newer. There is no Intel build.
 
 ## Updates
 

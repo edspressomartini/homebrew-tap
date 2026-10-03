@@ -6,8 +6,14 @@ Source and documentation: [upnextapp.co.uk](https://upnextapp.co.uk/) ·
 
 ```sh
 brew tap edspressomartini/tap
+brew trust edspressomartini/tap
 brew install --cask up-next
 ```
+
+The `brew trust` line is not optional. Since Homebrew 6, casks from a
+third-party tap are refused outright until you say you trust the tap, which is
+Homebrew asking you to make the same judgement this README is about. On a
+managed Mac you may not be able to grant it at all.
 
 ## macOS will refuse to open it the first time
 

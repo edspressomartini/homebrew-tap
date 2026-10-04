@@ -1,6 +1,6 @@
 cask "up-next" do
-  version "0.1.0"
-  sha256 "1dcde86efe3929e56f6d2601370c2bb4227461ce89ed2287e2d8ea2b763acf70"
+  version "0.2.0"
+  sha256 "b9ac787093ebead3f968fe04337a800f1f51926773bbe1ffe86f703283e86de7"
 
   url "https://github.com/edspressomartini/calendar/releases/download/v#{version}/up-next-#{version}-arm64.dmg"
   name "Up Next"
@@ -17,20 +17,8 @@ cask "up-next" do
 
   app "Up Next.app"
 
-  # Without this the install looks like it worked and the app will not open,
-  # with nothing on screen explaining why.
-  caveats <<~EOS
-    Up Next is not notarised by Apple, so macOS will refuse to open it the
-    first time, and again after each upgrade.
-
-    To allow it:
-      1. Try to open Up Next. macOS will block it.
-      2. Open System Settings > Privacy & Security.
-      3. Scroll down and click "Open Anyway" next to Up Next.
-
-    This is because the project has no Apple Developer Program membership.
-    See https://upnextapp.co.uk/security.html
-  EOS
+  # No caveats from 0.2.0 onwards. The build is signed with a Developer ID and
+  # notarised, so macOS opens it normally and there is nothing to warn about.
 
   zap trash: [
     "~/Library/Application Support/Up Next",

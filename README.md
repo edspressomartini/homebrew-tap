@@ -15,28 +15,24 @@ third-party tap are refused outright until you say you trust the tap, which is
 Homebrew asking you to make the same judgement this README is about. On a
 managed Mac you may not be able to grant it at all.
 
-## macOS will refuse to open it the first time
+## Signing
 
-This is expected, and it is not a sign that anything is wrong with the
-download. Up Next is not notarised by Apple, because the project has no Apple
-Developer Program membership. macOS blocks anything it has not seen notarised,
-and gives you no button in the dialog to continue.
+From `0.2.0`, Up Next is signed with an Apple Developer ID and notarised by
+Apple, so macOS opens it normally. Earlier versions were not, and required a
+trip to System Settings on every install; upgrading is the fix.
 
-To allow it:
+Check it yourself rather than taking the word of a README:
 
-1. Try to open Up Next. macOS blocks it.
-2. Open **System Settings → Privacy & Security**.
-3. Scroll down and click **Open Anyway** next to Up Next.
+```sh
+spctl --assess --type execute --verbose=4 "/Applications/Up Next.app"
+# accepted
+# source=Notarized Developer ID
+```
 
-You will have to do this again after each `brew upgrade`, because the replaced
-app is assessed afresh.
-
-What this costs you is Apple's malware scan of the binary and a revocable
-developer identity. It is a real thing to give up, and you should weigh it
-before installing. What it does not cost is the app's own hardening: the build
-is signed, the hardened runtime is on, and the
-[security page](https://upnextapp.co.uk/security.html) describes exactly what
-that does and does not cover.
+Notarisation means Apple scanned the binary for known malicious code and can
+revoke the identity behind it. It does not mean Apple reviewed what the app
+does. The [security page](https://upnextapp.co.uk/security.html) describes
+what it reaches, what it stores, and what none of this protects against.
 
 ## Requirements
 

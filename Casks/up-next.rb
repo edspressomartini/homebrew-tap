@@ -1,6 +1,6 @@
 cask "up-next" do
-  version "0.4.0"
-  sha256 "d9f5ea29c5ef59651ee4a650bc41561235b0bc739daeb84bfa21784a7b812586"
+  version "0.5.0"
+  sha256 "8cbb117504d7a5f50967beecc58730b157f324c8aebfc7b48772c0f632c22599"
 
   url "https://github.com/edspressomartini/calendar/releases/download/v#{version}/up-next-#{version}-arm64.dmg"
   name "Up Next"
